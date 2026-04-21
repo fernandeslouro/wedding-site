@@ -531,18 +531,6 @@ export function SiteShell({
         </div>
       </footer>
 
-      <a
-        className="floating-whatsapp-button"
-        href={whatsappHref}
-        rel="noreferrer"
-        target="_blank"
-      >
-        <span>{floatingWhatsAppLabel[locale]}</span>
-        <span className="floating-whatsapp-button-icon" aria-hidden="true">
-          <WhatsAppIcon />
-        </span>
-      </a>
-
       {cookiesVisible ? (
         <div className="cookie-banner" role="status">
           <p>{cookiesCopy}</p>
@@ -555,6 +543,21 @@ export function SiteShell({
           </button>
         </div>
       ) : null}
+
+      <a
+        aria-label={floatingWhatsAppLabel[locale]}
+        className="floating-whatsapp-button"
+        href={whatsappHref}
+        rel="noreferrer"
+        target="_blank"
+      >
+        <span className="floating-whatsapp-button-label">
+          {floatingWhatsAppLabel[locale]}
+        </span>
+        <span className="floating-whatsapp-button-icon" aria-hidden="true">
+          <WhatsAppIcon />
+        </span>
+      </a>
     </div>
   );
 }
