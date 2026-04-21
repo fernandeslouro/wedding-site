@@ -59,6 +59,7 @@ const floatingWhatsAppMobileLabel = {
 const footerHeadings = {
   pt: {
     explore: "Explorar",
+    contact: "Contacto",
     signature: "",
     location: "De norte a sul de Portugal",
     overview: "",
@@ -66,6 +67,7 @@ const footerHeadings = {
   },
   en: {
     explore: "Explore",
+    contact: "Contact",
     signature: "",
     location: "From north to south of Portugal",
     overview: "",
@@ -425,6 +427,7 @@ export function SiteShell({
             {footerContent.overview ? (
               <p className="footer-overview">{footerContent.overview}</p>
             ) : null}
+            <p className="footer-nav-title">{footerContent.contact}</p>
             <div className="footer-contact-list">
               <a href={`mailto:${settings.contactEmail}`}>{settings.contactEmail}</a>
               <a href={`tel:${settings.contactPhone.replace(/\s+/g, "")}`}>
