@@ -1819,6 +1819,10 @@ ul {
   min-width: 0;
 }
 
+.floating-whatsapp-button-mobile-label {
+  display: none;
+}
+
 .floating-whatsapp-button-icon {
   display: grid;
   place-items: center;
@@ -1836,7 +1840,7 @@ ul {
 
 .footer-shell {
   display: grid;
-  grid-template-columns: 1.35fr 0.78fr 0.87fr;
+  grid-template-columns: 0.78fr 0.87fr 1.35fr;
   gap: 1.25rem;
   align-items: start;
   padding-bottom: 1.25rem;
@@ -1846,6 +1850,12 @@ ul {
   display: grid;
   gap: 0.7rem;
   max-width: 32rem;
+}
+
+.footer-contact-block {
+  justify-items: start;
+  text-align: left;
+  margin-left: 0;
 }
 
 .footer-brand-row {
@@ -1884,6 +1894,10 @@ ul {
 .footer-contact-list {
   display: grid;
   gap: 0.34rem;
+}
+
+.footer-contact-block .footer-contact-list {
+  justify-items: start;
 }
 
 .footer-contact-list p,
@@ -1931,17 +1945,18 @@ ul {
 }
 
 .footer-signature-block {
-  justify-items: center;
-  text-align: center;
+  justify-items: end;
+  text-align: right;
+  margin-left: auto;
 }
 
 .footer-signature-block .footer-corner-brand {
-  margin: 0 auto 0.4rem;
-  justify-content: center;
+  margin: 0 0 0.4rem auto;
+  justify-content: flex-end;
 }
 
 .footer-signature-block .footer-brand-copy {
-  text-align: center;
+  text-align: right;
 }
 
 .footer-actions {
@@ -2131,6 +2146,31 @@ ul {
 
   .footer-shell {
     gap: 1.2rem;
+  }
+
+  .footer-contact-block {
+    justify-items: start;
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .footer-contact-block .footer-contact-list {
+    justify-items: start;
+  }
+
+  .footer-signature-block {
+    justify-items: center;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .footer-signature-block .footer-corner-brand {
+    margin: 0 auto 0.4rem;
+    justify-content: center;
+  }
+
+  .footer-signature-block .footer-brand-copy {
+    text-align: center;
   }
 
   .venues-reasons,
@@ -2433,9 +2473,13 @@ ul {
     display: none;
   }
 
+  .floating-whatsapp-button-mobile-label {
+    display: none;
+  }
+
   .floating-whatsapp-button-icon {
-    width: 2.1rem;
-    height: 2.1rem;
+    width: 1.85rem;
+    height: 1.85rem;
   }
 
   .brand-lightbox-close {

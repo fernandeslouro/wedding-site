@@ -51,6 +51,11 @@ const floatingWhatsAppLabel = {
   en: "Contact me",
 };
 
+const floatingWhatsAppMobileLabel = {
+  pt: "Contacta-me",
+  en: "Contact me",
+};
+
 const footerHeadings = {
   pt: {
     explore: "Explorar",
@@ -105,7 +110,6 @@ export function SiteShell({
   const router = useRouter();
   const [headerAtTop, setHeaderAtTop] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [photoExpanded, setPhotoExpanded] = useState(false);
   const [routeTransitionVisible, setRouteTransitionVisible] = useState(false);
   const [cookiesVisible, setCookiesVisible] = useState(false);
   const headerRef = useRef<HTMLElement | null>(null);
@@ -244,27 +248,6 @@ export function SiteShell({
     };
   }, [pathname, routeTransitionVisible]);
 
-  useEffect(() => {
-    if (!photoExpanded) {
-      return;
-    }
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setPhotoExpanded(false);
-      }
-    };
-
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = originalOverflow;
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [photoExpanded]);
-
   const navigation = visibleNavigationKeys.map((key) => ({
       key,
       label: navigationLabels[key][locale],
@@ -277,13 +260,6 @@ export function SiteShell({
     alternateLocale,
   );
   const whatsappHref = `https://wa.me/${settings.contactPhone.replace(/\D+/g, "")}`;
-  const expandPhotoLabel =
-    locale === "pt" ? "Ampliar fotografia do header" : "Expand header photo";
-  const closePhotoLabel = locale === "pt" ? "Fechar" : "Close";
-  const photoAlt =
-    locale === "pt"
-      ? "Fotografia do header de Maria Moinhos Eventos"
-      : "Maria Moinhos Eventos header photo";
   const acceptCookiesLabel = locale === "pt" ? "Aceitar" : "Accept";
   const cookiesCopy =
     locale === "pt"
@@ -357,37 +333,27 @@ export function SiteShell({
         ref={headerRef}
       >
         <div className="section-shell header-shell">
-          <div className="brand-mark">
-            <button
-              aria-haspopup="dialog"
-              aria-label={expandPhotoLabel}
-              className="brand-monogram-button"
-              onClick={() => setPhotoExpanded(true)}
-              type="button"
-            >
-              <span className="brand-monogram" aria-hidden="true">
-                <Image
-                  alt=""
-                  className="brand-monogram-image"
-                  fill
-                  priority
-                  sizes="44px"
-                  src="/editorial/header-whatsapp-20260331.jpeg"
-                />
-              </span>
-            </button>
-            <Link
-              className="brand-copy-link"
-              href={getRoutePath(locale, "home")}
-              onClick={handleHeaderNavigation(getRoutePath(locale, "home"), {
-                closeMenu: false,
-              })}
-            >
-              <span className="brand-copy">
-                <strong>{settings.brandName}</strong>
-              </span>
-            </Link>
-          </div>
+          <Link
+            className="brand-mark"
+            href={getRoutePath(locale, "home")}
+            onClick={handleHeaderNavigation(getRoutePath(locale, "home"), {
+              closeMenu: false,
+            })}
+          >
+            <span className="brand-monogram" aria-hidden="true">
+              <Image
+                alt=""
+                className="brand-monogram-image"
+                fill
+                priority
+                sizes="44px"
+                src="/editorial/header-whatsapp-20260331.jpeg"
+              />
+            </span>
+            <span className="brand-copy">
+              <strong>{settings.brandName}</strong>
+            </span>
+          </Link>
 
           <button
             aria-expanded={menuOpen}
@@ -438,45 +404,24 @@ export function SiteShell({
         </div>
       </header>
 
-      {photoExpanded ? (
-        <div
-          aria-label={photoAlt}
-          aria-modal="true"
-          className="brand-lightbox"
-          onClick={() => setPhotoExpanded(false)}
-          role="dialog"
-        >
-          <div
-            className="brand-lightbox-card"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              aria-label={closePhotoLabel}
-              className="brand-lightbox-close"
-              onClick={() => setPhotoExpanded(false)}
-              type="button"
-            >
-              {closePhotoLabel}
-            </button>
-            <Image
-              alt={photoAlt}
-              className="brand-lightbox-image"
-              height={768}
-              sizes="92vw"
-              src="/editorial/header-whatsapp-20260331.jpeg"
-              width={1408}
-            />
-          </div>
-        </div>
-      ) : null}
-
       <main className="site-main" id="main-content">
         {children}
       </main>
 
       <footer className="site-footer">
         <div className="section-shell footer-shell">
-          <div className="footer-brand-block">
+          <div className="footer-nav-block">
+            <p className="footer-nav-title">{footerContent.explore}</p>
+            <div className="footer-nav-list">
+              {footerExploreLinks.map((item) => (
+                <Link key={item.href} href={item.href}>
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="footer-brand-block footer-contact-block">
             {footerContent.overview ? (
               <p className="footer-overview">{footerContent.overview}</p>
             ) : null}
@@ -488,17 +433,6 @@ export function SiteShell({
               <p>{footerContent.location}</p>
             </div>
             <p className="footer-copyright">© 2026 {settings.brandName}</p>
-          </div>
-
-          <div className="footer-nav-block">
-            <p className="footer-nav-title">{footerContent.explore}</p>
-            <div className="footer-nav-list">
-              {footerExploreLinks.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  {item.label}
-                </Link>
-              ))}
-            </div>
           </div>
 
           <div className="footer-nav-block footer-signature-block">
@@ -553,6 +487,9 @@ export function SiteShell({
       >
         <span className="floating-whatsapp-button-label">
           {floatingWhatsAppLabel[locale]}
+        </span>
+        <span className="floating-whatsapp-button-mobile-label">
+          {floatingWhatsAppMobileLabel[locale]}
         </span>
         <span className="floating-whatsapp-button-icon" aria-hidden="true">
           <WhatsAppIcon />

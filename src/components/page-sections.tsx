@@ -992,20 +992,20 @@ export function ServicesPage({
         }
       : {
           eyebrow: "Services",
-          title: "Three packages designed for different levels of support.",
+          title: "Three service packages shaped around different levels of support.",
           intro: "",
-          extrasTitle: "Events that also fit within the same structure",
+          extrasTitle: "Other events that can follow the same structure",
           imageLabel: "Panoramic image for the services page",
           extras: [
-            "Weddings and micro weddings",
+            "Weddings and micro-weddings",
             "Private dinners and family celebrations",
             "Baptisms",
             "Baby showers",
             "Vow renewals",
-            "Birthdays",
+            "Birthday celebrations",
             "Intimate events",
             "Marriage proposals",
-            "Others, because the sky is the limit",
+            "Other formats too, because the possibilities are open",
           ],
         };
 
@@ -1041,7 +1041,11 @@ export function ServicesPage({
 
         <div className="section">
           <SectionHeading
-            eyebrow={locale === "pt" ? "Outros eventos personalizados" : "Other bespoke events"}
+            eyebrow={
+              locale === "pt"
+                ? "Outros eventos personalizados"
+                : "Other bespoke events"
+            }
             title={copy.extrasTitle}
           />
           <div className="chip-row">

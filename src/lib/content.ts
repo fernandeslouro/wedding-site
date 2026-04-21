@@ -127,7 +127,7 @@ export const fallbackSiteData: SiteData = {
     },
     servicePitch: {
       pt: "",
-      en: "Three levels of support designed to match the rhythm and scale of each celebration.",
+      en: "Three levels of support shaped around the rhythm and scale of each celebration.",
     },
     showInstagram: false,
     showTestimonials: false,
@@ -142,28 +142,28 @@ export const fallbackSiteData: SiteData = {
       },
       title: {
         pt: "Planeamento integral",
-        en: "Signature Planning",
+        en: "Full Planning",
       },
       description: {
         pt: "Acompanhamento completo para casamentos e outros eventos personalizados, com direção criativa, organização estruturada e presença próxima ao longo de todo o processo.",
-        en: "Full planning for weddings and other bespoke events that require creative direction, supplier management, timeline design, and close support from start to finish.",
+        en: "Full planning for weddings and other bespoke events, with creative direction, structured organisation, and close guidance throughout the entire process.",
       },
       idealFor: {
         pt: "Ideal para quem pretende delegar a organização com confiança e manter uma visão coerente do início ao fim.",
-        en: "Ideal for clients who want to delegate the process with confidence while keeping one cohesive vision from start to finish.",
+        en: "Ideal for those who want to delegate the planning with confidence while keeping a clear and cohesive vision from beginning to end.",
       },
       includes: [
         {
           pt: "Reuniões recorrentes, definição do conceito e atmosfera pretendida",
-          en: "Concept and atmosphere curation",
+          en: "Recurring meetings, concept development, and definition of the desired atmosphere",
         },
         {
           pt: "Seleção e gestão de fornecedores, com acompanhamento próximo",
-          en: "Supplier sourcing and management",
+          en: "Supplier selection and management, with close follow-up",
         },
         {
           pt: "Visita técnica, cronograma, organização do espaço e coordenação operacional do dia",
-          en: "Timeline, layout planning, and full coordination",
+          en: "Site visit, timeline, layout planning, and on-the-day coordination",
         },
       ],
     },
@@ -176,28 +176,28 @@ export const fallbackSiteData: SiteData = {
       },
       title: {
         pt: "Planeamento parcial",
-        en: "Guided Planning",
+        en: "Partial Planning",
       },
       description: {
         pt: "Apoio parcial para quem já iniciou o processo, mas precisa de estrutura, afinação estética e uma voz experiente para fechar decisões.",
-        en: "Partial planning support for clients who have already started but need structure, aesthetic refinement, and an experienced voice to finalise decisions.",
+        en: "Partial planning support for those who have already started the process but need structure, aesthetic refinement, and an experienced voice to help finalise decisions.",
       },
       idealFor: {
         pt: "Ideal para quem quer continuar envolvido na organização, com acompanhamento profissional nas etapas mais importantes.",
-        en: "Ideal for couples who want to stay hands-on without losing structure or clarity.",
+        en: "Ideal for those who want to stay involved in the planning while receiving professional guidance at the most important stages.",
       },
       includes: [
         {
           pt: "Revisão do plano, prioridades e alinhamento geral do evento",
-          en: "Review of the existing plan and priorities",
+          en: "Review of the existing plan, priorities, and overall event direction",
         },
         {
           pt: "Apoio na decisão de fornecedores-chave e afinação estética",
-          en: "Support with key supplier decisions",
+          en: "Support with key supplier decisions and aesthetic refinement",
         },
         {
           pt: "Visita técnica, cronograma, organização do espaço e coordenação operacional do dia (opcional)",
-          en: "Final alignment in the lead-up to the event",
+          en: "Site visit, timeline, layout planning, and optional on-the-day coordination",
         },
       ],
     },
@@ -210,28 +210,28 @@ export const fallbackSiteData: SiteData = {
       },
       title: {
         pt: "Coordenação do dia",
-        en: "Styling & Coordination",
+        en: "On-the-Day Coordination",
       },
       description: {
         pt: "Coordenação do dia para qualquer tipo de celebração já organizada, garantindo ambiente, fluidez e presença no momento certo.",
-        en: "Aesthetic direction and on-the-day coordination for smaller or already organised celebrations, ensuring atmosphere, rhythm, and calm execution.",
+        en: "On-the-day coordination for already planned celebrations, ensuring the right atmosphere, a smooth flow, and discreet support at the right moments.",
       },
       idealFor: {
         pt: "Ideal para quem procura viver o evento com tranquilidade, sabendo que toda a operação está acompanhada com atenção e discrição.",
-        en: "Ideal for intimate events, private dinners, baby showers, anniversaries, vow renewals, and lighter wedding productions.",
+        en: "Ideal for those who want to enjoy the event with peace of mind, knowing the full operation is being managed with care and discretion.",
       },
       includes: [
         {
           pt: "Visita técnica e preparação final do cronograma",
-          en: "Styling direction and setup oversight",
+          en: "Site visit and final timeline preparation",
         },
         {
           pt: "Ponto de contacto para equipa, fornecedores e logística do evento",
-          en: "Operational coordination on the day",
+          en: "Main point of contact for the team, suppliers, and event logistics",
         },
         {
           pt: "Coordenação operacional do dia, assegurando fluidez e serenidade",
-          en: "Main point of contact for the team and suppliers",
+          en: "On-the-day coordination to ensure a calm and seamless flow",
         },
       ],
     },
