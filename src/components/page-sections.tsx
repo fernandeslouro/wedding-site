@@ -12,7 +12,7 @@ import { ContactForm } from "@/components/contact-form";
 import { HomeHeroSlideshow } from "@/components/home-hero-slideshow";
 
 const editorialWeddingImages = {
-  about: "/editorial/9ac2d7c6-f57d-4133-aecc-2529a0f2a980.jpeg",
+  about: "/editorial/9ac2d7c6-f57d-4133-aecc-2529a0f2a980.png",
   contact: "/editorial/contact-enquiry-table.jpg",
   homeGallery: [
     "/editorial/home-gallery-music.jpg",
