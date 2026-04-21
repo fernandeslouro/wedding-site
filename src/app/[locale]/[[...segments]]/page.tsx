@@ -140,9 +140,9 @@ export default async function LocalizedPage({ params }: PageProps) {
   if (route.type === "page") {
     switch (route.key) {
       case "home":
-        return <HomePage data={siteData} locale={locale} />;
+        return <HomePage locale={locale} />;
       case "about":
-        return <AboutPage data={siteData} locale={locale} />;
+        return <AboutPage locale={locale} />;
       case "services":
         return <ServicesPage data={siteData} locale={locale} />;
       case "portfolio":

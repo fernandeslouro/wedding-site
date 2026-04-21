@@ -787,10 +787,8 @@ function HomeEditorialGallery({
           <EditorialMedia
             accent={block.accent}
             fallbackImage={block.fallbackImage}
-            image={block.image}
             key={`${block.label}-${index}`}
             label={block.label}
-            tall={block.tall}
           />
         ))}
       </div>
@@ -800,10 +798,8 @@ function HomeEditorialGallery({
 
 export function HomePage({
   locale,
-  data,
 }: {
   locale: Locale;
-  data: SiteData;
 }) {
   const copy =
     locale === "pt"
@@ -907,10 +903,8 @@ export function HomePage({
 
 export function AboutPage({
   locale,
-  data,
 }: {
   locale: Locale;
-  data: SiteData;
 }) {
   const copy =
     locale === "pt"
