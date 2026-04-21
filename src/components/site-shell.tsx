@@ -59,7 +59,7 @@ const floatingWhatsAppMobileLabel = {
 const footerHeadings = {
   pt: {
     explore: "Explorar",
-    contact: "Contacto",
+    contact: "Contactos",
     signature: "",
     location: "De norte a sul de Portugal",
     overview: "",

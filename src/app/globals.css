@@ -1937,6 +1937,9 @@ ul {
 
 .footer-nav-list a {
   font-size: 0.89rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
 }
 
 .footer-note-list p {
@@ -2488,26 +2491,24 @@ ul {
   }
 
   .footer-shell {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    column-gap: 1rem;
+    grid-template-columns: 1fr;
     row-gap: 1.2rem;
     align-items: start;
   }
 
   .footer-contact-block {
-    grid-column: 1;
-    grid-row: 1;
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .footer-shell > .footer-nav-block:first-child {
-    display: grid;
-    grid-column: 2;
-    grid-row: 1;
-    justify-items: end;
-    text-align: right;
+    display: block;
+    grid-column: auto;
+    grid-row: auto;
+    text-align: left;
   }
 
   .footer-signature-block {
-    display: none;
+    display: none !important;
   }
 }
