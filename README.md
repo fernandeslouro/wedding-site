@@ -52,7 +52,7 @@ Com essas variáveis definidas, a área de Studio passa a usar os schemas inclu�
 
 O formulário funciona em dois modos:
 
-- com `RESEND_API_KEY` e `CONTACT_EMAIL_TO`, envia email
+- com `RESEND_API_KEY`, envia email para `mariamoinhos.eventos@outlook.com`
 - sem essas variáveis, aceita o pedido e regista-o no log do servidor
 
 ## Conteúdo provisório

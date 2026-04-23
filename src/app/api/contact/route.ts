@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 
+const CONTACT_EMAIL_TO = "mariamoinhos.eventos@outlook.com";
+
 const inquirySchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
@@ -28,17 +30,16 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: true, delivery: "log" });
     }
 
-    const to = process.env.CONTACT_EMAIL_TO;
     const from =
       process.env.CONTACT_EMAIL_FROM ??
       "MM Eventos <onboarding@resend.dev>";
 
-    if (process.env.RESEND_API_KEY && to) {
+    if (process.env.RESEND_API_KEY) {
       const resend = new Resend(process.env.RESEND_API_KEY);
 
       await resend.emails.send({
         from,
-        to,
+        to: CONTACT_EMAIL_TO,
         replyTo: payload.email,
         subject: `Novo pedido de contacto: ${payload.name}`,
         text: [

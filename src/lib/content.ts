@@ -115,7 +115,7 @@ export const fallbackSiteData: SiteData = {
       pt: "",
       en: "MM Eventos was created around a simple belief: to calm the process and bring elegance to every detail of weddings and other bespoke events, through close guidance, serene direction, and attention to what truly matters.",
     },
-    contactEmail: "mariamoinhos.eventos@oulook.com",
+    contactEmail: "mariamoinhos.eventos@outlook.com",
     contactPhone: "+351 966 862 556",
     baseLocation: {
       pt: "Base em Portugal, com foco inicial em celebrações no país.",
