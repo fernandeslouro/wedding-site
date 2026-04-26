@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     if (process.env.RESEND_API_KEY) {
       const resend = new Resend(process.env.RESEND_API_KEY);
 
-      await resend.emails.send({
+      const emailResult = await resend.emails.send({
         from,
         to: CONTACT_EMAIL_TO,
         replyTo: payload.email,
@@ -54,6 +54,21 @@ export async function POST(request: Request) {
           "",
           payload.message,
         ].join("\n"),
+      });
+
+      if (emailResult.error) {
+        console.error("Resend email delivery failed:", emailResult.error);
+        return NextResponse.json(
+          { ok: false, message: "Unable to send contact email." },
+          { status: 502 },
+        );
+      }
+
+      console.info("Contact inquiry email sent:", {
+        emailId: emailResult.data?.id,
+        from,
+        to: CONTACT_EMAIL_TO,
+        replyTo: payload.email,
       });
 
       return NextResponse.json({ ok: true, delivery: "email" });

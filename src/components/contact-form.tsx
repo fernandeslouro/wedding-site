@@ -9,6 +9,10 @@ type SubmissionState =
   | { status: "success"; message: string }
   | { status: "error"; message: string };
 
+type FieldErrors = {
+  message?: string;
+};
+
 const copy = {
   pt: {
     heading: "Conta-me a tua ideia",
@@ -20,6 +24,9 @@ const copy = {
       "Pedido registado. O envio por email ainda não está configurado, por isso esta submissão ficou guardada localmente.",
     error:
       "Não foi possível enviar o formulário. Tenta novamente dentro de momentos.",
+    validation: {
+      messageMinLength: "A mensagem deve ter pelo menos 10 caracteres.",
+    },
     fields: {
       name: "Nome",
       email: "E-mail",
@@ -55,6 +62,9 @@ const copy = {
       "Your enquiry has been recorded. Email delivery is not configured yet, so this submission was stored locally in the server logs.",
     error:
       "The form could not be sent. Please try again in a moment.",
+    validation: {
+      messageMinLength: "Message must be at least 10 characters.",
+    },
     fields: {
       name: "Name",
       email: "Email",
@@ -86,15 +96,30 @@ const initialState: SubmissionState = { status: "idle" };
 
 export function ContactForm({ locale }: { locale: Locale }) {
   const [state, setState] = useState<SubmissionState>(initialState);
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+
+  function validateMessage(value: string) {
+    return value.trim().length >= 10
+      ? undefined
+      : copy[locale].validation.messageMinLength;
+  }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setState({ status: "loading" });
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-
     const payload = Object.fromEntries(formData.entries());
+    const messageError = validateMessage(String(payload.message ?? ""));
+
+    if (messageError) {
+      setFieldErrors({ message: messageError });
+      setState({ status: "idle" });
+      return;
+    }
+
+    setFieldErrors({});
+    setState({ status: "loading" });
 
     try {
       const response = await fetch("/api/contact", {
@@ -205,7 +230,26 @@ export function ContactForm({ locale }: { locale: Locale }) {
 
       <label>
         <span>{copy[locale].fields.message}</span>
-        <textarea name="message" required rows={6} />
+        <textarea
+          aria-describedby={fieldErrors.message ? "message-error" : undefined}
+          aria-invalid={fieldErrors.message ? "true" : "false"}
+          className={fieldErrors.message ? "field-error-input" : undefined}
+          minLength={10}
+          name="message"
+          onChange={(event) => {
+            const nextError = validateMessage(event.currentTarget.value);
+            setFieldErrors((current) =>
+              current.message === nextError ? current : { ...current, message: nextError },
+            );
+          }}
+          required
+          rows={6}
+        />
+        {fieldErrors.message ? (
+          <p className="field-error-message" id="message-error">
+            {fieldErrors.message}
+          </p>
+        ) : null}
       </label>
 
       <label className="honeypot" aria-hidden="true">

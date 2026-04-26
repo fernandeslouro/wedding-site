@@ -1628,12 +1628,22 @@ ul {
   resize: vertical;
 }
 
+.contact-form .field-error-input {
+  border-color: rgba(170, 73, 62, 0.5);
+}
+
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
   outline: 2px solid rgba(168, 97, 73, 0.32);
   outline-offset: 0;
   border-color: rgba(168, 97, 73, 0.38);
+}
+
+.field-error-message {
+  margin-top: 0.45rem;
+  font-size: 0.9rem;
+  color: #742c24;
 }
 
 .form-feedback {
